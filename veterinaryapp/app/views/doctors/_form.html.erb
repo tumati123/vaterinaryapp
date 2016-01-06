@@ -1,0 +1,79 @@
+<%= form_for(@doctor,:html => { :class =>"form-horizontal" }) do |f| %>
+  <% if @doctor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
+
+      <ul>
+      <% @doctor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+        <div class="panel panel-primary">
+          <div class="panel-heading"><h3>Doctor Details</h3></div>
+          <div class="panel-body">
+
+            <div class="form-group">
+                  <%= f.label :name, "Doctor's Name:", class: 'control-label col-sm-2' %>
+                  <div class="col-sm-4">
+                    <%=f.text_field :name,  :placeholder => "Doctor's Name", class: 'form-control', :maxlength=> 35 %>
+                  </div>
+            </div>
+
+
+            <div class="form-group">
+              <%= f.label :name, "Address:", class: 'control-label col-sm-2' %>
+              <div class="col-sm-4">
+                <%=f.text_field :address,  :placeholder => "Address", class: 'form-control' %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :city, "City:", class: 'control-label col-sm-2' %>
+              <div class="col-sm-4">
+                <%=f.text_field :city,  :placeholder => "City", class: 'form-control' %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :state, "State:", class: 'control-label col-sm-2' %>
+              <div class="col-sm-4">
+                <%=f.text_field :state,  :placeholder => "State", class: 'form-control' %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :zip, "Zip:", class: 'control-label col-sm-2' %>
+              <div class="col-sm-4">
+                <%=f.text_field :zip,  :placeholder => "Zip", class: 'form-control', :maxlength=> 5 %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :school, "School Received Degree From:", class: 'control-label col-sm-2' %>
+              <div class="col-sm-4">
+                <%=f.text_field :school,  :placeholder => "School Received Degree From", class: 'form-control' %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :years, "Years in Practice:", class: 'control-label col-sm-2' %>
+              <div class="col-sm-4">
+                <%=f.number_field :years,   in: 1...101,  :placeholder => "Years in Practice", class: 'form-control' %>
+              </div>
+            </div>
+
+
+
+
+
+          </div>
+
+
+
+        </div>
+
+      <div style="text-align: center;margin-left: auto;margin-right: auto">
+        <%= f.submit "Submit", :class=> 'btn btn-primary' %>
+      </div>
+<% end %>

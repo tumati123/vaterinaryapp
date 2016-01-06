@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VeterinaryApplication</title>
+ <%= csrf_meta_tags %>
+</head>
+<body>
+<div>
+  <a href=<%= root_path %>>Home</a>
+</div>
+  <div>
+    <ul>
+      <li><a href=<%= doctors_path %>>Owner</a></li>
+      <li><a href=<%= pets_path %>>Doctor</a></li>
+      <li><a href=<%= appointments_path %>>Receptionist</a></li>
+      <li><a href=<%= customers_path %>>Customer</a></li>
+
+    </ul>
+  </div>
+  </nav>
+
+<div id="main-container" class="container">
+  <%= yield %>
+</div>
+
+</div>
+
+
+
+</body>
+</html>

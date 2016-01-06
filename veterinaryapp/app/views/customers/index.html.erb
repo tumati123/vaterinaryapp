@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading"><h3>Appointment Listing</h3></div>
+  <div class="panel-body">
+    <table border="1" style="width:100%">
+      <thead>
+      <tr>
+        <th colspan="3">Customer Name</th>
+        <th colspan="3">Date of Next Appointmnet</th>
+        <th colspan="3">Pet Name</th>
+        <th colspan="3">Reason for Visit</th>
+
+
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @appointments.each do |ap| %>
+          <tr>
+            <td colspan="3"><%=ap.customer %></td>
+            <td colspan="3"><%=ap.date.to_s(:long) %></td>
+            <td colspan="3"><%=ap.pet %></td>
+            <td colspan="3"><%=ap.reason %></td>
+
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+<br>

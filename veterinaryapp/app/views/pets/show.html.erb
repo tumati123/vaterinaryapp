@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<div class="panel panel-primary">
+  <div class="panel-heading"><h3>Pet Details</h3></div>
+  <div class="panel-body">
+    <table class="table table-striped table-bordered" cellspacing="0" width="50%">
+
+      <tbody>
+
+      <tr><td><strong>Pet Name:</strong> </td><td><%= @pet.name %></td></tr>
+      <tr><td><strong>Type of Pet:</strong> </td><td><%= @pet.typeofpet.name %></td></tr>
+      <tr><td><strong>Breed:</strong> </td><td><%= @pet.breed %></td></tr>
+      <tr><td><strong>Age:</strong> </td><td><%= @pet.age %></td></tr>
+      <tr><td><strong>Weight:</strong> </td><td><%= @pet.weight %></td></tr>
+      <tr><td><strong>Last Visit:</strong> </td><td><%=  @pet.lastvisit.to_s(:long) %></td></tr>
+      </tbody>
+
+    </table>
+
+  </div>
+</div>
+
+<div style="text-align: center;margin-left: auto;margin-right: auto">
+
+  <%= link_to 'Edit', edit_pet_path(@pet), :class=> 'btn btn-primary' %>
+  <%= link_to 'Back', pets_path, :class=> 'btn btn-primary' %>
+</div>

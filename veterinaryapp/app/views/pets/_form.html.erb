@@ -1,0 +1,68 @@
+<%= form_for(@pet,:html => { :class =>"form-horizontal" }) do |f| %>
+  <% if @pet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+
+      <ul>
+      <% @pet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading"><h3>Pet Details</h3></div>
+      <div class="panel-body">
+
+        <div class="form-group">
+          <%= f.label :name, "Pet Name", class: 'control-label col-sm-2' %>
+          <div class="col-sm-4">
+            <%=f.text_field :name,  :placeholder => "Pet Name", class: 'form-control', :maxlength=> 35 %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :typeofpet_id, "Tyoe of Pet:", class: 'control-label col-sm-2' %>
+          <div class="col-sm-4">
+            <%=f.collection_select :typeofpet_id,  Typeofpet.order(:name),:id, :name, {}, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :breed, "Breed:", class: 'control-label col-sm-2' %>
+          <div class="col-sm-4">
+            <%=f.text_field :breed,  :placeholder => "Breed", class: 'form-control', :maxlength=> 35 %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :age, "Age:", class: 'control-label col-sm-2' %>
+          <div class="col-sm-4">
+            <%=f.text_field :age,  :placeholder => "Age", class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :weight, "Weight:", class: 'control-label col-sm-2' %>
+          <div class="col-sm-4">
+            <%=f.text_field :weight,  :placeholder => "Weight", class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :lastvisit, "Date of Last Visit:", class: 'control-label col-sm-2' %>
+          <div class="col-sm-4">
+            <%=f.date_select :lastvisit,  class: 'form-control' %>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+
+
+
+    </div>
+    <div style="text-align: center;margin-left: auto;margin-right: auto">
+
+    <%= f.submit "Submit", :class=> 'btn btn-primary' %>
+  </div>
+<% end %>

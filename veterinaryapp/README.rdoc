@@ -1,0 +1,5 @@
+
+run the following commands.
+bundle install
+rake db:migrate
+rake db:seed 
